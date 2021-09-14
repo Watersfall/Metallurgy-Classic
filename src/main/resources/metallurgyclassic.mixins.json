@@ -10,7 +10,8 @@
   ],
   "client": [
     "FurnaceCookTimeMixin",
-    "MetalChestTextureMixin"
+    "MetalChestTextureMixin",
+    "ArmorFeatureRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

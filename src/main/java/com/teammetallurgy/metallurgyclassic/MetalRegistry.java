@@ -365,4 +365,16 @@ public class MetalRegistry {
             });
         });
     }
+
+    public void fixArmorTextures() {
+        registry.forEach((name, entry) -> {
+            if(entry.config != null && entry.config.type.hasTools()) {
+                entry.items.values().forEach(item -> {
+                    if(item instanceof ArmorItem armor) {
+                        MetallurgyClassicClient.preRegisterArmorTextures(MetallurgyClassic.id(armor.getMaterial().getName()), false);
+                    }
+                });
+            }
+        });
+    }
 }
