@@ -367,13 +367,15 @@ public class MetalRegistry {
     }
 
     public void fixArmorTextures() {
+        MetallurgyClassicClient.preRegisterArmorTextures(MetallurgyClassic.id("copper"), false);
         registry.forEach((name, entry) -> {
             if(entry.config != null && entry.config.type.hasTools()) {
-                entry.items.values().forEach(item -> {
+                for(Item item : entry.items.values()) {
                     if(item instanceof ArmorItem armor) {
                         MetallurgyClassicClient.preRegisterArmorTextures(MetallurgyClassic.id(armor.getMaterial().getName()), false);
+                        break;
                     }
-                });
+                }
             }
         });
     }
